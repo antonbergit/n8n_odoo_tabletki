@@ -1,0 +1,38 @@
+# Надати наступну інформацію: 
+
+n8n_deployment:
+  type: "docker"  
+  version: "1.123.4"
+  url: "https://n8n.quickdo.it.com/"
+  
+execution: 
+  timeout_seconds: "120s"
+  max_execution_time:  "-1"
+  mode: "regular"
+  
+resources:
+  cpu_limit: "unlimited (host resources)"
+  memory_limit: "unlimited (host resources)"
+  disk_space: "2.4M"
+  
+networking:
+  can_reach_odoo: "yes"
+  can_reach_tabletki_api: "yes"
+  proxy_required: "no"
+  firewall_rules: ""No restrictions (internal network)"
+  
+credentials:
+  storage_method: "PostgreSQL"
+  encryption_enabled: "no"
+  
+logging:
+  retention_days: "7"
+  external_logging:  "stdout"
+  
+monitoring:
+  health_checks: "yes"
+  alerting: "none"
+  
+backup:
+  workflows_backup:  "manual"
+  frequency: "none"
