@@ -175,7 +175,7 @@ backup_workflows() {
     log INFO "Starting workflows backup..."
 
     local backup_file="${BACKUP_DIR}/workflows_${TIMESTAMP}.json"
-    local temp_file="${TEMP_DIR}/workflows. json"
+    local temp_file="${TEMP_DIR}/workflows.json"
 
     if [ "$TEST_MODE" = true ]; then
         log WARNING "TEST MODE:  Skipping actual backup"
@@ -336,7 +336,7 @@ EOF
 rotate_backups() {
     log INFO "Rotating old backups (keeping last ${KEEP_BACKUPS})..."
 
-    local workflow_files=$(ls -t "${BACKUP_DIR}"/workflows_*. json 2>/dev/null || true)
+    local workflow_files=$(ls -t "${BACKUP_DIR}"/workflows_*.json 2>/dev/null || true)
     local db_files=$(ls -t "${BACKUP_DIR}"/database_*.sql.gz 2>/dev/null || true)
     local manifest_files=$(ls -t "${BACKUP_DIR}"/manifest_*.txt 2>/dev/null || true)
 
