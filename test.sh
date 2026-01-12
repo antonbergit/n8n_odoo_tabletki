@@ -14,7 +14,7 @@ echo "1. Creating backup..."
 ./backup_n8n.sh --verbose
 
 # Зберегти timestamp
-BACKUP_TS=$(ls -t backups/workflows_*. json 2>/dev/null | head -1 | sed 's/.*workflows_\(.*\)\.json/\1/')
+BACKUP_TS=$(ls -t backups/workflows_*.json 2>/dev/null | head -1 | sed 's/.*workflows_\(.*\)\.json/\1/')
 echo "Backup timestamp:  $BACKUP_TS"
 
 if [ -z "$BACKUP_TS" ]; then
@@ -60,7 +60,7 @@ cat > /tmp/host_test_workflow.json << 'EOFWORKFLOW'
 EOFWORKFLOW
 
 # Копіювати в контейнер
-docker cp /tmp/host_test_workflow.json n8n-n8n-1:/tmp/test. json
+docker cp /tmp/host_test_workflow.json n8n-n8n-1:/tmp/test.json
 
 # Перевірити що файл створився
 if docker exec n8n-n8n-1 test -f /tmp/test.json; then
