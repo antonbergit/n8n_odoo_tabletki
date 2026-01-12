@@ -44,7 +44,7 @@ fi
 
 TIMESTAMP=$1
 WORKFLOW_FILE="${BACKUP_DIR}/workflows_${TIMESTAMP}.json"
-DB_FILE="${BACKUP_DIR}/database_${TIMESTAMP}.sql. gz"
+DB_FILE="${BACKUP_DIR}/database_${TIMESTAMP}.sql.gz"
 
 # Verify backup files exist
 [ -f "$WORKFLOW_FILE" ] || error_exit "Workflow backup not found: $WORKFLOW_FILE"

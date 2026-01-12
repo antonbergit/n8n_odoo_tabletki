@@ -184,7 +184,7 @@ backup_workflows() {
 
     # Export workflows
     log INFO "Exporting workflows from n8n..."
-    if !  docker exec "$N8N_CONTAINER" n8n export: workflow --all --output=/tmp/workflows_export.json 2>&1 | tee -a "${LOG_FILE}"; then
+    if ! docker exec "$N8N_CONTAINER" n8n export:workflow --all --output=/tmp/workflows_export.json 2>&1 | tee -a "${LOG_FILE}"; then
         error_exit "Failed to export workflows"
     fi
 
@@ -301,7 +301,7 @@ PostgreSQL Version: $(docker exec "$POSTGRES_CONTAINER" psql -U "$POSTGRES_USER"
 BACKUP FILES:
 -------------
 Workflows:  workflows_${TIMESTAMP}.json
-Database: database_${TIMESTAMP}.sql. gz
+Database: database_${TIMESTAMP}.sql.gz
 
 FILE SIZES:
 -----------
@@ -386,7 +386,7 @@ print_summary() {
     echo "Files Created:"
     echo "  - workflows_${TIMESTAMP}.json"
     echo "  - database_${TIMESTAMP}.sql.gz"
-    echo "  - manifest_${TIMESTAMP}. txt"
+    echo "  - manifest_${TIMESTAMP}.txt"
     echo ""
     echo "Backup Sizes:"
     ls -lh "${BACKUP_DIR}/workflows_${TIMESTAMP}.json" "${BACKUP_DIR}/database_${TIMESTAMP}.sql.gz" 2>/dev/null | \
